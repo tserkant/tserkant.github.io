@@ -4,107 +4,80 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Muhammed Serkan Kocaağa | HTB CDSA</title>
+<meta name="description" content="Muhammed Serkan Kocaağa'nın siber güvenlik portföyü ve HTB CDSA sertifikası. SOC analizi, olay müdahalesi, siber güvenlik uzmanlığı.">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 <style>
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     font-family: 'Share Tech Mono', monospace;
     background-color: #0B0C10;
     color: #D3D3D3;
     overflow-x: hidden;
   }
-
   #matrix {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
     z-index: -1;
     background: black;
     filter: brightness(0.6) saturate(0.7);
   }
-
   canvas {
     display: block;
   }
-
   #splash {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
     background-color: #0B0C10;
     color: #1DB7F1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: 2px;
-    text-shadow:
-      0 0 8px #1DB7F1,
-      0 0 20px #1DB7F1;
+    text-shadow: 0 0 8px #1DB7F1, 0 0 20px #1DB7F1;
     animation: splashFadeOut 3s forwards 2s;
     animation-timing-function: ease-out;
     text-align: center;
+    z-index: 100;
   }
-
   @keyframes splashFadeOut {
     to {
       opacity: 0;
       visibility: hidden;
     }
   }
-
   @keyframes glitch {
     0% {
-      text-shadow:
-        2px 0 #1DB7F1,
-        -2px 0 #8E44AD;
+      text-shadow: 2px 0 #1DB7F1, -2px 0 #8E44AD;
       transform: translate(0);
     }
     20% {
-      text-shadow:
-        -2px 0 #1DB7F1,
-        2px 0 #8E44AD;
+      text-shadow: -2px 0 #1DB7F1, 2px 0 #8E44AD;
       transform: translate(-1px, 1px);
     }
     40% {
-      text-shadow:
-        2px 0 #1DB7F1,
-        -2px 0 #8E44AD;
+      text-shadow: 2px 0 #1DB7F1, -2px 0 #8E44AD;
       transform: translate(1px, -1px);
     }
     60% {
-      text-shadow:
-        -2px 0 #1DB7F1,
-        2px 0 #8E44AD;
+      text-shadow: -2px 0 #1DB7F1, 2px 0 #8E44AD;
       transform: translate(-1px, 1px);
     }
     80% {
-      text-shadow:
-        2px 0 #1DB7F1,
-        -2px 0 #8E44AD;
+      text-shadow: 2px 0 #1DB7F1, -2px 0 #8E44AD;
       transform: translate(1px, -1px);
     }
     100% {
-      text-shadow:
-        -2px 0 #1DB7F1,
-        2px 0 #8E44AD;
+      text-shadow: -2px 0 #1DB7F1, 2px 0 #8E44AD;
       transform: translate(0);
     }
   }
-
   #splash span {
     display: inline-block;
     animation: glitch 2s infinite;
   }
-
   header {
     background: linear-gradient(to right, #12171f, #1d2533);
     color: #1DB7F1;
@@ -115,22 +88,21 @@
     border-bottom: 2px solid #1DB7F144;
     letter-spacing: 1.5px;
     font-weight: 600;
+    user-select: none;
   }
-
   .terminal-line {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.3rem;
     color: #8E44AD;
     text-shadow: 0 0 8px #8E44ADaa;
+    user-select: none;
   }
-
   .terminal-line span {
     color: #1DB7F1;
     font-weight: 700;
     text-shadow: 0 0 10px #1DB7F1cc;
   }
-
   .card, .about, .skills, .social, .cert-image, .section {
     max-width: 900px;
     margin: 2rem auto;
@@ -141,18 +113,15 @@
     box-shadow: 0 0 30px #1DB7F122;
     color: #d3d3d3;
   }
-
   .card h2, .about h2, .skills h3, .section h3 {
     color: #1DB7F1;
     margin-bottom: 1rem;
     font-weight: 600;
   }
-
   .card p, .about p, .section p {
     color: #c0c0c0;
     line-height: 1.6;
   }
-
   .card button {
     background: transparent;
     border: 1.5px solid #8E44AD;
@@ -165,14 +134,13 @@
     font-weight: 600;
     box-shadow: 0 0 6px #8E44ADaa;
     margin-top: 1rem;
+    user-select: none;
   }
-
   .card button:hover {
     background: #8E44AD;
     color: #12171f;
     box-shadow: 0 0 16px #8E44ADcc;
   }
-
   .cert-image img {
     width: 220px;
     border: 3px solid #8E44ADcc;
@@ -181,7 +149,6 @@
     display: block;
     margin: 0 auto;
   }
-
   .skills .skill-list {
     display: flex;
     flex-wrap: wrap;
@@ -189,7 +156,6 @@
     gap: 1.3rem;
     margin-top: 1rem;
   }
-
   .skill {
     background-color: rgba(142, 68, 173, 0.1);
     border: 1.5px solid #8E44ADcc;
@@ -202,19 +168,16 @@
     text-shadow: 0 0 8px #8E44AD88;
     transition: 0.2s;
   }
-
   .skill:hover {
     background-color: #8E44AD;
     color: #12171f;
     box-shadow: 0 0 24px #8E44AD99;
     border-color: #8E44AD99;
   }
-
   .social {
     text-align: center;
     margin: 3rem 0 1rem 0;
   }
-
   .social a {
     color: #8E44AD;
     text-decoration: none;
@@ -228,14 +191,12 @@
     display: inline-block;
     user-select: none;
   }
-
   .social a:hover {
     background-color: #8E44AD;
     color: #12171f;
     box-shadow: 0 0 24px #8E44AD99;
     border-color: #8E44AD99;
   }
-
   footer {
     text-align: center;
     padding: 2rem;
@@ -245,148 +206,490 @@
     margin-top: 2rem;
     user-select: none;
   }
+
+  /* Dashboard Container */
+  #dashboard {
+    max-width: 900px;
+    margin: 3rem auto 5rem auto;
+    padding: 2rem;
+    background: rgba(29, 183, 241, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 40px #1DB7F144;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    color: #d3d3d3;
+  }
+  .panel {
+    background: rgba(255 255 255 / 0.05);
+    border: 1px solid #1DB7F1aa;
+    border-radius: 12px;
+    box-shadow: 0 0 18px #1DB7F1cc;
+    padding: 1.5rem 1.8rem;
+    user-select: none;
+  }
+  .panel h4 {
+    margin: 0 0 1rem 0;
+    color: #1DB7F1;
+    font-weight: 700;
+    text-shadow: 0 0 15px #1DB7F1bb;
+    font-size: 1.25rem;
+  }
+  .value {
+    font-size: 2.7rem;
+    font-weight: 700;
+    color: #8E44AD;
+    text-shadow: 0 0 16px #8E44ADcc;
+    letter-spacing: 2px;
+  }
+  .progress-bar {
+    margin-top: 1rem;
+    height: 12px;
+    background-color: #12171f;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #1DB7F1, #8E44AD);
+    width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 12px #1DB7F1aa;
+  }
+  canvas.chart-canvas {
+    width: 100% !important;
+    height: 170px !important;
+    display: block !important;
+  }
+
+  /* Dil değiştirme butonları */
+  #langSwitcher {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  #langSwitcher button {
+    margin: 0 0.5rem;
+    background: transparent;
+    border: 1.5px solid #1DB7F1;
+    color: #1DB7F1;
+    padding: 0.3rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    user-select: none;
+    transition: 0.3s;
+  }
+  #langSwitcher button:hover,
+  #langSwitcher button.active {
+    background-color: #1DB7F1;
+    color: #0B0C10;
+  }
+
+  /* Mobil uyumluluk */
+  @media (max-width: 600px) {
+    header {
+      font-size: 2rem;
+      padding: 1.5rem 1rem;
+    }
+    .card, .about, .skills, .social, .cert-image, .section {
+      margin: 1rem;
+      padding: 1.5rem 1rem;
+    }
+    .terminal-line {
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    #dashboard {
+      grid-template-columns: 1fr !important;
+      padding: 1rem;
+      margin: 1rem auto 3rem auto;
+    }
+  }
 </style>
 </head>
 <body>
+
 <canvas id="matrix"></canvas>
 
 <div id="splash"><span>Threat Detected: Initiating Defensive Protocols...</span></div>
 
 <header>Muhammed Serkan Kocaağa | HTB CDSA</header>
 
+<div id="langSwitcher" aria-label="Dil seçimi">
+  <button id="trBtn" class="active" aria-pressed="true" type="button">Türkçe</button>
+  <button id="enBtn" aria-pressed="false" type="button">English</button>
+</div>
+
 <div class="terminal-line">whoami <span>&gt;</span> msksec</div>
 
-<div class="card">
-  <h2>Certified Defensive Security Analyst (CDSA)</h2>
-  <p><strong>Platform:</strong> Hack The Box</p>
-  <p><strong>Tarih:</strong> Mayıs 2025</p>
-  <button onclick="window.open('https://www.credly.com/badges/fab514d3-3a07-434a-80f9-8f3aa3d4e6e6', '_blank')">Sertifikayı Doğrula</button>
+<!-- Ana içerik Türkçe -->
+<div id="content-tr">
+
+  <div class="card">
+    <h2>Certified Defensive Security Analyst (CDSA)</h2>
+    <p><strong>Platform:</strong> Hack The Box</p>
+    <p><strong>Tarih:</strong> Mayıs 2025</p>
+    <button onclick="window.open('https://www.credly.com/badges/fab514d3-3a07-434a-80f9-8f3aa3d4e6e6', '_blank', 'noopener,noreferrer')">Sertifikayı Doğrula</button>
+  </div>
+
+  <div class="cert-image">
+    <img
+      src="https://images.credly.com/size/340x340/images/e78adea1-f60b-4991-b5d5-3427140c7c1d/image.png"
+      alt="CDSA Sertifikası"
+    />
+  </div>
+
+  <div class="section">
+    <h3>Profesyonel Özet</h3>
+    <p>Siber güvenlikle 2 yıldır ilgileniyorum. Özellikle SOC analizi ve olay müdahalesi üzerine odaklandım. LetsDefend’de 65+ uyarıyı çözdüm, CyberExam’de 50+ modülü tamamladım ve HTB CDSA (Certified Defensive Security Analyst) sertifikasını aldım.</p>
+  </div>
+
+  <div class="section">
+    <h3>Eğitim</h3>
+    <p><strong>İstanbul Bilgi Üniversitesi</strong><br />
+    Ön Lisans - Bilgi Güvenliği<br />
+    Eylül 2022 - Temmuz 2024<br />
+    İlgili Dersler: Bilgi Güvenliği, Ağ Güvenliği, İşletim Sistemleri, Veritabanı Sistemleri, Güvenlik Operasyonları, Risk Yönetimi, İş Yazılımları</p>
+  </div>
+
+  <div class="section">
+    <h3>Sertifikalar</h3>
+    <ul>
+      <li>CyberOps Associate (Cisco)</li>
+      <li>Non-Stop (LetsDefend)</li>
+      <li>Practical Ethical Hacking (TCM Security) - Sertifika ID: cert_xny4gqf3</li>
+      <li>Temel Seviye SOC Analist (Sparta)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>İlgili Deneyimler</h3>
+    <p><strong>Ölçsan - Bilgi Teknolojileri Stajyeri</strong><br />
+    Mayıs 2023 - Haziran 2023</p>
+    <ul>
+      <li>Siber güvenlik eğitim ekibine liderlik ederek grup çapında farkındalık ve teknik becerilerin artırılmasını sağladım.</li>
+      <li>Çevrimiçi güvenlik, yaygın web saldırıları, bilgi güvenliği prensipleri, risk analizi, tehdit tespiti ve olay müdahalesi üzerine haftalık eğitimler organize edip sundum.</li>
+      <li>ISO 27001 eğitimi tamamlayarak bilgi güvenliği yönetim sistemleri (ISMS) hakkında bilgi edindim.</li>
+      <li>Yapılandırılmış eğitimlerle ekip işbirliğini ve bilgi paylaşımını geliştirdim.</li>
+    </ul>
+    <p><strong>SOME - Stajyerİ</strong><br />
+    Haziran 2023 - Eylül 2023</p>
+    <ul>
+      <li>Gerçek dünya kurumsal ortamlarını simüle etmek için Active Directory ortamı kurdum ve yönettim.</li>
+      <li>Splunk kullanarak anormal kullanıcı davranışı, lateral hareketler ve ayrıcalık yükseltme girişimleri üzerinde tehdit avcılığı yaptım.</li>
+      <li>PsExec gibi araçları kullanan saldırıları tespit edip analiz ederek post-exploitation deneyimi kazandım.</li>
+    </ul>
+  </div>
+
+  <div class="skills">
+    <h3>Yetenekler</h3>
+    <div class="skill-list">
+      <div class="skill">Log Analizi</div>
+      <div class="skill">MITRE ATT&amp;CK</div>
+      <div class="skill">XDR / EDR</div>
+      <div class="skill">Digital Forensics</div>
+      <div class="skill">IDS / IPS</div>
+      <div class="skill">Incident Response</div>
+      <div class="skill">Threat Hunting</div>
+      <div class="skill">Malware Analysis</div>
+      <div class="skill">Network Security</div>
+    </div>
+  </div>
+
 </div>
 
-<div class="cert-image">
-  <img
-    src="https://images.credly.com/size/340x340/images/e78adea1-f60b-4991-b5d5-3427140c7c1d/image.png"
-    alt="CDSA Sertifikası"
-  />
+<!-- Ana içerik İngilizce -->
+<div id="content-en" style="display:none;">
+
+  <div class="card">
+    <h2>Certified Defensive Security Analyst (CDSA)</h2>
+    <p><strong>Platform:</strong> Hack The Box</p>
+    <p><strong>Date:</strong> May 2025</p>
+    <button onclick="window.open('https://www.credly.com/badges/fab514d3-3a07-434a-80f9-8f3aa3d4e6e6', '_blank', 'noopener,noreferrer')">Verify Certificate</button>
+  </div>
+
+  <div class="cert-image">
+    <img
+      src="https://images.credly.com/size/340x340/images/e78adea1-f60b-4991-b5d5-3427140c7c1d/image.png"
+      alt="CDSA Certificate"
+    />
+  </div>
+
+  <div class="section">
+    <h3>Professional Summary</h3>
+    <p>I have been interested in cybersecurity for 2 years, mainly focusing on SOC analysis and incident response. I resolved 65+ alerts on LetsDefend, completed 50+ modules on CyberExam, and earned the HTB CDSA (Certified Defensive Security Analyst) certification.</p>
+  </div>
+
+  <div class="section">
+    <h3>Education</h3>
+    <p><strong>Istanbul Bilgi University</strong><br />
+    Associate Degree - Information Security<br />
+    September 2022 - July 2024<br />
+    Relevant courses: Information Security, Network Security, Operating Systems, Database Systems, Security Operations, Risk Management, Business Software</p>
+  </div>
+
+  <div class="section">
+    <h3>Certifications</h3>
+    <ul>
+      <li>CyberOps Associate (Cisco)</li>
+      <li>Non-Stop (LetsDefend)</li>
+      <li>Practical Ethical Hacking (TCM Security) - Cert ID: cert_xny4gqf3</li>
+      <li>Entry Level SOC Analyst (Sparta)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Relevant Experience</h3>
+    <p><strong>Ölçsan - IT Intern</strong><br />
+    May 2023 - June 2023</p>
+    <ul>
+      <li>Led cybersecurity training team, increasing awareness and technical skills across groups.</li>
+      <li>Organized and delivered weekly trainings on online security, common web attacks, information security principles, risk analysis, threat detection, and incident response.</li>
+      <li>Completed ISO 27001 training gaining knowledge of Information Security Management Systems (ISMS).</li>
+      <li>Improved team collaboration and knowledge sharing through structured trainings.</li>
+    </ul>
+    <p><strong>SOME - Intern</strong><br />
+    June 2023 - September 2023</p>
+    <ul>
+      <li>Set up and managed Active Directory environments simulating real corporate networks.</li>
+      <li>Performed threat hunting on abnormal user behavior, lateral movement, and privilege escalation attempts using Splunk.</li>
+      <li>Detected and analyzed attacks involving tools like PsExec gaining post-exploitation experience.</li>
+    </ul>
+  </div>
+
+  <div class="skills">
+    <h3>Skills</h3>
+    <div class="skill-list">
+      <div class="skill">Log Analysis</div>
+      <div class="skill">MITRE ATT&amp;CK</div>
+      <div class="skill">XDR / EDR</div>
+      <div class="skill">Digital Forensics</div>
+      <div class="skill">IDS / IPS</div>
+      <div class="skill">Incident Response</div>
+      <div class="skill">Threat Hunting</div>
+      <div class="skill">Malware Analysis</div>
+      <div class="skill">Network Security</div>
+    </div>
+  </div>
+
 </div>
 
-<div class="section">
-  <h3>Profesyonel Özet</h3>
-  <p>Siber güvenlikle 2 yıldır ilgileniyorum. Özellikle SOC analizi ve olay müdahalesi üzerine odaklandım. LetsDefend’de 65+ uyarıyı çözdüm, CyberExam’de 50+ modülü tamamladım ve HTB CDSA (Certified Defensive Security Analyst) sertifikasını aldım.</p>
-</div>
-
-<div class="section">
-  <h3>Eğitim</h3>
-  <p><strong>İstanbul Bilgi Üniversitesi</strong><br />
-  Ön Lisans - Bilgi Güvenliği<br />
-  Eylül 2022 - Temmuz 2024<br />
-  İlgili Dersler: Bilgi Güvenliği, Ağ Güvenliği, Algoritma, Veritabanı Sistemleri, Güvenlik Operasyonları, Risk Yönetimi, Splunk</p>
-</div>
-
-<div class="section">
-  <h3>Sertifikalar</h3>
-  <ul>
-    <li>CyberOps Associate (Cisco)</li>
-    <li>Non-Stop (LetsDefend) </li>
-    <li>Practical Ethical Hacking (TCM Security) - Sertifika ID: cert_xny4gqf3</li>
-    <li>Temel Seviye SOC Analist (Sparta)</li>
-
-  </ul>
-</div>
-
-<div class="section">
-  <h3>İlgili Deneyimler</h3>
-  <p><strong>Ölçsan - Bilgi Teknolojileri Stajyeri</strong><br />
-  Mayıs 2023 - Haziran 2023</p>
-  <ul>
-    <li>Siber güvenlik eğitim ekibine liderlik ederek grup çapında farkındalık ve teknik becerilerin artırılmasını sağladım.</li>
-    <li>Çevrimiçi güvenlik, yaygın web saldırıları, bilgi güvenliği prensipleri, risk analizi, tehdit tespiti ve olay müdahalesi üzerine haftalık eğitimler organize edip sundum.</li>
-    <li>ISO 27001 eğitimi tamamlayarak bilgi güvenliği yönetim sistemleri (ISMS) hakkında bilgi edindim.</li>
-    <li>Yapılandırılmış eğitimlerle ekip işbirliğini ve bilgi paylaşımını geliştirdim.</li>
-  </ul>
-  <p><strong>SOME - Stajyeri</strong><br />
-  Haziran 2023 - Eylül 2023</p>
-  <ul>
-    <li>Gerçek dünya kurumsal ortamlarını simüle etmek için Active Directory ortamı kurdum ve yönettim.</li>
-    <li>Splunk kullanarak anormal kullanıcı davranışı, lateral hareketler ve ayrıcalık yükseltme girişimleri üzerinde tehdit avcılığı yaptım.</li>
-    <li>PsExec gibi uzak yürütme araçlarını kullanan saldırıların tespiti ve analizi üzerine post-exploitation sürecine dair pratik tecrübe edindim</li>
-  </ul>
-</div>
-
-<div class="skills">
-  <h3>Yetenekler</h3>
-  <div class="skill-list">
-    <div class="skill">Log Analizi</div>
-    <div class="skill">MITRE ATT&amp;CK</div>
-    <div class="skill">XDR / EDR</div>
-    <div class="skill">Digital Forensics</div>
-    <div class="skill">IDS / IPS</div>
-    <div class="skill">Incident Response</div>
-    <div class="skill">Threat Hunting</div>
-    <div class="skill">Malware Analysis</div>
-    <div class="skill">Network Security</div>
+<div id="dashboard" aria-label="Sistem Kaynakları ve Performans Durumu">
+  <div class="panel" aria-live="polite" aria-atomic="true">
+    <h4>CPU Usage</h4>
+    <div class="value" id="cpuUsage">0%</div>
+    <div class="progress-bar" aria-hidden="true">
+      <div class="progress-bar-inner" id="cpuBar"></div>
+    </div>
+    <canvas id="cpuChart" class="chart-canvas" aria-label="CPU kullanımı grafiği" role="img"></canvas>
+  </div>
+  <div class="panel" aria-live="polite" aria-atomic="true">
+    <h4>RAM Usage</h4>
+    <div class="value" id="ramUsage">0 GB</div>
+    <div class="progress-bar" aria-hidden="true">
+      <div class="progress-bar-inner" id="ramBar"></div>
+    </div>
+    <canvas id="ramChart" class="chart-canvas" aria-label="RAM kullanımı grafiği" role="img"></canvas>
+  </div>
+  <div class="panel" aria-live="polite" aria-atomic="true">
+    <h4>Network</h4>
+    <div class="value" id="netSpeed">0 Mbps</div>
+    <canvas id="netChart" class="chart-canvas" aria-label="Ağ hızı grafiği" role="img"></canvas>
   </div>
 </div>
 
-<div class="social">
-  <a href="https://www.linkedin.com/in/muhammed-serkan-k-4a1542245" target="_blank">LinkedIn Profilim</a>
-</div>
+<footer>
+  <p>© 2025 Muhammed Serkan Kocaağa</p>
+  <p><a href="https://www.linkedin.com/in/muhammed-serkan-k-4a1542245/" target="_blank" rel="noopener noreferrer" style="color:#8E44AD;">LinkedIn</a></p>
+</footer>
 
-<footer>© 2025 Muhammed Serkan Kocaağa | Tüm hakları saklıdır.</footer>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+  // Splash ekranı 4 saniye sonra gizle
+  setTimeout(() => {
+    const splash = document.getElementById('splash');
+    splash.style.opacity = '0';
+    setTimeout(() => { splash.style.display = 'none'; }, 1500);
+  }, 4000);
+
+  // Matrix background animasyonu
   const canvas = document.getElementById('matrix');
   const ctx = canvas.getContext('2d');
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
-
-  const letters = '01';
+  let width, height;
+  let columns;
   const fontSize = 14;
-  const columns = Math.floor(width / fontSize);
+  const drops = [];
 
-  const drops1 = [];
-  const drops2 = [];
-
-  for (let i = 0; i < columns; i++) {
-    drops1[i] = Math.random() * height;
-    drops2[i] = Math.random() * height;
+  const characters = '01';
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    columns = Math.floor(width / fontSize);
+    for (let i = 0; i < columns; i++) drops[i] = Math.random() * height;
   }
+  window.addEventListener('resize', resize);
+  resize();
 
   function draw() {
-    ctx.fillStyle = 'rgba(11,12,16,0.12)';
+    ctx.fillStyle = 'rgba(11,12,16, 0.1)';
     ctx.fillRect(0, 0, width, height);
 
+    ctx.fillStyle = '#1DB7F1';
     ctx.font = fontSize + 'px monospace';
 
-    // Katman 1 - parlak ve hızlı
-    ctx.fillStyle = '#1DB7F1';
-    for (let i = 0; i < drops1.length; i++) {
-      const text = letters.charAt(Math.floor(Math.random() * letters.length));
-      ctx.fillText(text, i * fontSize, drops1[i]);
-      drops1[i] += fontSize * 0.9;
-
-      if (drops1[i] > height && Math.random() > 0.975) drops1[i] = 0;
+    for (let i = 0; i < columns; i++) {
+      const text = characters.charAt(Math.floor(Math.random() * characters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      drops[i]++;
+      if (drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
     }
+    requestAnimationFrame(draw);
+  }
+  draw();
 
-    // Katman 2 - daha yumuşak ve yavaş
-    ctx.fillStyle = 'rgba(29, 183, 241, 0.4)';
-    for (let i = 0; i < drops2.length; i++) {
-      const text = letters.charAt(Math.floor(Math.random() * letters.length));
-      ctx.fillText(text, i * fontSize, drops2[i]);
-      drops2[i] += fontSize * 0.5;
+  // Dil seçici
+  const trBtn = document.getElementById('trBtn');
+  const enBtn = document.getElementById('enBtn');
+  const contentTR = document.getElementById('content-tr');
+  const contentEN = document.getElementById('content-en');
 
-      if (drops2[i] > height && Math.random() > 0.98) drops2[i] = 0;
-    }
+  trBtn.addEventListener('click', () => {
+    trBtn.classList.add('active');
+    enBtn.classList.remove('active');
+    trBtn.setAttribute('aria-pressed', 'true');
+    enBtn.setAttribute('aria-pressed', 'false');
+    contentTR.style.display = 'block';
+    contentEN.style.display = 'none';
+  });
+  enBtn.addEventListener('click', () => {
+    enBtn.classList.add('active');
+    trBtn.classList.remove('active');
+    enBtn.setAttribute('aria-pressed', 'true');
+    trBtn.setAttribute('aria-pressed', 'false');
+    contentEN.style.display = 'block';
+    contentTR.style.display = 'none';
+  });
+
+  // Sistem kaynakları - CPU, RAM, Network simülasyonu + Chart.js grafikler
+
+  const cpuUsageEl = document.getElementById('cpuUsage');
+  const cpuBar = document.getElementById('cpuBar');
+  const ramUsageEl = document.getElementById('ramUsage');
+  const ramBar = document.getElementById('ramBar');
+  const netSpeedEl = document.getElementById('netSpeed');
+
+  // Chart.js için grafiklar
+  const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+  const ramCtx = document.getElementById('ramChart').getContext('2d');
+  const netCtx = document.getElementById('netChart').getContext('2d');
+
+  // 60 saniyelik data dizisi
+  const maxDataPoints = 60;
+  let cpuData = Array(maxDataPoints).fill(0);
+  let ramData = Array(maxDataPoints).fill(0);
+  let netData = Array(maxDataPoints).fill(0);
+
+  // Varsayılan toplam RAM GB
+  const totalRam = 16;
+
+  // Başlangıç değerleri
+  let cpuValue = 10;
+  let ramUsed = 6;
+  let netSpeed = 50;
+
+  // Chart.js configler
+  const createLineChart = (ctx, label, borderColor) => {
+    return new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array(maxDataPoints).fill(''),
+        datasets: [{
+          label: label,
+          data: [],
+          borderColor: borderColor,
+          borderWidth: 2,
+          tension: 0.3,
+          fill: true,
+          backgroundColor: borderColor + '33',
+          pointRadius: 0,
+        }]
+      },
+      options: {
+        animation: false,
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { display: false },
+          y: {
+            min: 0,
+            max: label === 'RAM (GB)' ? totalRam : 100,
+            ticks: {
+              color: '#8E44AD',
+              font: { family: "'Share Tech Mono', monospace" }
+            },
+            grid: { color: '#1DB7F133' }
+          }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+  };
+
+  const cpuChart = createLineChart(cpuCtx, 'CPU %', '#1DB7F1');
+  const ramChart = createLineChart(ramCtx, 'RAM (GB)', '#8E44AD');
+  const netChart = createLineChart(netCtx, 'Network Mbps', '#8E44AD');
+
+  // Güncelleme fonksiyonu - hafif random simülasyonlar
+  function updateStats() {
+    // CPU usage simülasyonu: 10-80 arası değişiyor yavaşça
+    cpuValue += (Math.random() - 0.5) * 10;
+    cpuValue = Math.min(80, Math.max(10, cpuValue));
+
+    // RAM kullanımı simülasyonu: 5-14 GB arası
+    ramUsed += (Math.random() - 0.5) * 0.3;
+    ramUsed = Math.min(totalRam - 1, Math.max(5, ramUsed));
+
+    // Network simülasyonu: 30-120 Mbps arası
+    netSpeed += (Math.random() - 0.5) * 15;
+    netSpeed = Math.min(120, Math.max(30, netSpeed));
+
+    // Güncelleme DOM
+    cpuUsageEl.textContent = cpuValue.toFixed(1) + '%';
+    cpuBar.style.width = cpuValue + '%';
+
+    ramUsageEl.textContent = ramUsed.toFixed(1) + ' GB';
+    ramBar.style.width = (ramUsed / totalRam * 100).toFixed(1) + '%';
+
+    netSpeedEl.textContent = netSpeed.toFixed(1) + ' Mbps';
+
+    // Data push ve pop
+    cpuData.push(cpuValue);
+    cpuData.shift();
+
+    ramData.push(ramUsed);
+    ramData.shift();
+
+    netData.push(netSpeed);
+    netData.shift();
+
+    // Grafik güncelle
+    cpuChart.data.datasets[0].data = cpuData;
+    cpuChart.update('none');
+
+    ramChart.data.datasets[0].data = ramData;
+    ramChart.update('none');
+
+    netChart.data.datasets[0].data = netData;
+    netChart.update('none');
   }
 
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
+  // Her saniye stats güncelle
+  setInterval(updateStats, 1000);
+  updateStats();
 
-  window.addEventListener('resize', resize);
-
-  setInterval(draw, 33);
 </script>
+
 </body>
 </html>
