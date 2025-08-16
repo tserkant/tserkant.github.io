@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Makale Başlığı • Siber Güvenlik Blogu</title>
+  <meta name="description" content="Siber güvenlik temalı premium statik makale şablonu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --surface: #0f172a; /* koyu lacivert */
+      --card: #111a2e;
+      --muted: #94a3b8; /* slate-400 */
+      --text: #e6eefc;  /* çok açık mavi-beyaz */
+      --title: #e8f0ff;
+      --accent: #3b82f6; /* mavi */
+      --accent-600: #2563eb;
+      --accent-700: #1d4ed8;
+      --ring: rgba(59,130,246,0.35);
+      --border: #1e293b;
+      --code-bg: #0b1430;
+      --code-border: #1b2b52;
+      --kbd-bg: #0f1b36;
+      --kbd-border: #1c325f;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(37,99,235,0.15), transparent),
+                  radial-gradient(900px 600px at -10% 20%, rgba(59,130,246,0.12), transparent),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(180deg, rgba(8,13,26,0.9), rgba(8,13,26,0.7));
+      backdrop-filter: saturate(1.2) blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 14px 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; }
+    .badge {
+      width: 28px; height: 28px; display: grid; place-items: center; border-radius: 8px;
+      background: linear-gradient(160deg, var(--accent), var(--accent-700));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+      color: white; font-weight: 700; font-size: 14px;
+    }
+    .nav a.btn {
+      display: inline-flex; align-items: center; gap: 8px; font-weight: 600; padding: 10px 14px;
+      border: 1px solid var(--border); border-radius: 12px; background: #0b1325;
+    }
+    .nav a.btn:hover { border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); text-decoration: none; }
+
+    /* Hero / title */
+    .hero { padding: 28px 24px 8px; border-bottom: 1px dashed var(--border); }
+    .breadcrumbs { color: var(--muted); font-size: 13px; letter-spacing: 0.2px; }
+    .breadcrumbs a { color: var(--muted); }
+
+    h1.title { margin: 12px 0 8px; font-size: 36px; line-height: 1.2; color: var(--title); }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px 16px; color: var(--muted); font-size: 14px; }
+    .meta .dot { width: 4px; height: 4px; background: var(--border); border-radius: 999px; align-self: center; }
+
+    /* Layout */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+    @media (min-width: 960px) {
+      .grid { grid-template-columns: 1fr 300px; }
+      aside.sticky { position: sticky; top: 88px; height: max-content; }
+    }
+
+    /* Article */
+    article {
+      background: linear-gradient(180deg, rgba(37,99,235,0.06), transparent 120px), var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    article h2 { margin: 28px 0 10px; font-size: 24px; line-height: 1.3; }
+    article h3 { margin: 20px 0 10px; font-size: 18px; line-height: 1.35; }
+    article p { margin: 12px 0; }
+    article ul, article ol { margin: 12px 0 12px 20px; }
+    article li { margin: 6px 0; }
+
+    blockquote {
+      margin: 18px 0; padding: 14px 16px; border-left: 3px solid var(--accent);
+      background: #0b1428; color: #cfe0ff; border-radius: 8px;
+    }
+
+    .note {
+      border: 1px solid var(--border); background: #0b1325; border-radius: 12px; padding: 14px 16px;
+    }
+
+    /* Code */
+    pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      padding: 16px; border-radius: 12px; overflow: auto; font-size: 14px; line-height: 1.6;
+    }
+    code { background: rgba(59,130,246,0.12); padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(59,130,246,0.25); }
+
+    /* TOC */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+    .toc h4 { margin: 0 0 10px; font-size: 14px; letter-spacing: 0.3px; color: #c8dbff; text-transform: uppercase; }
+    .toc ul { margin: 0; padding: 0; list-style: none; }
+    .toc li { margin: 8px 0; }
+    .toc a { color: #cfe0ff; }
+    .toc a:hover { color: var(--title); text-decoration: none; }
+
+    /* Author */
+    .author { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: center; }
+    .avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(160deg, #0b1428, #0a1734); border: 1px solid var(--border); display: grid; place-items: center; font-weight: 700; color: #a7c4ff; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: #0b1325; color: #cfe0ff; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    /* Footer prev/next */
+    .pager { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 700px) {
+      .pager { grid-template-columns: 1fr 1fr; }
+    }
+    .pager a { display: block; border: 1px solid var(--border); border-radius: 14px; padding: 14px; background: #0b1325; text-decoration: none; }
+    .pager a span { display: block; color: var(--muted); font-size: 12px; }
+    .pager a strong { display: block; margin-top: 4px; color: var(--title); }
+    .pager a:hover { border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); }
+
+    /* Accessible focus styles */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="badge">SK</div>
+        <div>Siber Güvenlik Blogu</div>
+      </div>
+      <nav style="display:flex; gap:10px; align-items:center;">
+        <a class="btn" href="index.html">Anasayfa</a>
+        <a class="btn" href="makale2.html">Parent Process PID Spoofing</a>
+        <a class="btn" href="https://www.linkedin.com/pulse/kerberoasting-tespiti-splunk-muhammed-serkan-kocaa%C4%9Fa-jym8f/?trackingId=g8Of5ewfW%2BmL%2FiOne%2B%2BenA%3D%3D">Linkedin Üzerinden Oku</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="breadcrumbs">
+        <a href="#">Anasayfa</a> / <a href="#">Makaleler</a> / <span>Makale Başlığı</span>
+      </div>
+      <h1 class="title">Kerberoasting: Temelden Tespit İpuçlarına</h1>
+      <div class="meta">
+        <div>Yazan: <strong>Serkan K.</strong></div>
+        <div class="dot"></div>
+        <div>Yayın: 16 Ağustos 2025</div>
+        <div class="dot"></div>
+        <div>Okuma: ~8 dk</div>
+        <div class="dot"></div>
+        <div>Kategori: <a href="#">Makale</a></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article id="icerik">
+        <div class="note" role="note">
+          Bu yazı, Security analist perspektifiyle <strong>Kerberoasting</strong> tekniğinin temeli, saldırı akışı, LDAP/SPN keşfi ve pratik <em>tespit</em> ipuçlarını bir arada sunar.
+        </div>
+
+        <h2 id="temel">SPN ve Kerberos Temeli</h2>
+        <p>
+          Active Directory ortamlarında <strong>Service Principal Name (SPN)</strong>, belirli bir servis instance’ını tanımlayan benzersiz bir kimliktir. Kerberos, SPN’leri kullanarak bir servis instance’ını ilgili <em>service logon account</em> ile ilişkilendirir; böylece istemci uygulamalar hesap adını bilmeden o servis hesabına kimlik doğrulama talebi oluşturabilir.
+        </p>
+        <p>
+          Bir <strong>TGS</strong> (Ticket Granting Service) bileti talep edildiğinde, bu bilet ilgili servis hesabının <em>NTLM password hash</em> değeri ile şifrelenir. <strong>Kerberoasting</strong> saldırısı tam burada devreye girer: Saldırgan TGS biletini ele geçirir ve çevrimdışı olarak kırmaya çalışır. Başarılı olursa elde edilen değer servis hesabının <em>gerçek parolasıdır</em>.
+        </p>
+        <div class="note">
+          Saldırı başarısını belirleyen iki ana faktör: <strong>parola gücü</strong> ve <strong>kullanılan şifreleme algoritması</strong>.
+        </div>
+
+        <h2 id="algoritmalar">Şifreleme Algoritmaları ve Risk</h2>
+        <ul>
+          <li><strong>AES</strong> – Daha güvenlidir; kırma süresi uzundur.</li>
+          <li><strong>RC4</strong> – Daha hızlı kırılır; birçok ortamda hâlâ görülür.</li>
+          <li><strong>DES</strong> – Çok eski; genellikle devre dışıdır.</li>
+        </ul>
+        <p>
+          En iyi uygulamalar <strong>RC4</strong> ve <strong>DES</strong>'in devre dışı bırakılmasını önerir. Ancak bazı uygulamalar AES’i desteklemediğinden kurumlar RC4 kullanmaya devam edebilir. Saldırganlar belirli tekniklerle <em>encryption downgrade</em> yaparak biletleri <strong>RC4-HMAC (etype 0x17)</strong> ile talep edebilir. <strong>RC4</strong>’ün zayıflığı zayıf parola politikalarıyla birleştiğinde, biletler kısa sürede kırılabilir.
+        </p>
+
+        <h2 id="rubeus">Rubeus ile Saldırı Akışı</h2>
+        <p>
+          <strong>Rubeus</strong>, Kerberoasting’i otomatikleştiren bir araçtır. SPN’e sahip kullanıcı hesaplarını hedefler ve Domain Controller’dan bu hesaplara ait TGS biletlerini ister.
+        </p>
+        <pre><code>.\Rubeus.exe kerberoast /outfile:garp.txt</code></pre>
+        <p><strong>Komut ne yapar?</strong></p>
+        <ul>
+          <li>Kerberos TGS biletlerini Kerberoasting tekniğiyle çıkarır.</li>
+          <li>Çıkan hash değerlerini <code>garp.txt</code> dosyasına kaydeder.</li>
+        </ul>
+        <p><strong>Sonraki adımlar:</strong></p>
+        <ol>
+          <li>Rubeus → bilet hash’lerini toplar (<code>garp.txt</code>).</li>
+          <li><code>garp.txt</code> → Kali Linux’a aktarılır.</li>
+          <li><strong>Hashcat</strong> veya <strong>John the Ripper</strong> ile offline parola kırma yapılır.</li>
+        </ol>
+
+        <h2 id="cracking">Offline Kırma (Hashcat)</h2>
+        <pre><code>hashcat -m 13100 garp.txt /usr/share/wordlists/rockyou.txt</code></pre>
+        <ul>
+          <li><code>-m 13100</code> → Kerberos 5 TGS-REP etype 23 (RC4-HMAC) modu.</li>
+          <li><code>garp.txt</code> → Rubeus’tan gelen hash’ler.</li>
+          <li><code>rockyou.txt</code> → Denenecek parola listesi.</li>
+        </ul>
+        <p>Kırma başarılı olursa, servis hesabının gerçek parolasına erişilir.</p>
+
+        <h2 id="ldap-kesif">LDAP Kerberoasting SPN Keşfi Tespiti</h2>
+        <p>
+          LDAP tabanlı keşif, Kerberoasting için uygun hedeflerin belirlenmesi aşamasıdır. SPN’e sahip kullanıcı hesapları (çoğunlukla servis hesapları) listelenir. SPN’li hesapların TGS biletleri, zayıf parolalar ve RC4/DES gibi eski algoritmalar kullanıldığında kolayca kırılabilir. Erken tespit, bilet talebi aşamasından önce engelleme imkânı sağlar.
+        </p>
+        <h3 id="ldap-filtreleri">Örnek LDAP Filtreleri / Araçlar</h3>
+        <ul>
+          <li><strong>PowerView – Tüm kullanıcılar</strong>: <code>(&amp;(samAccountType=805306368)(samAccountName=*))</code></li>
+          <li><strong>PowerView – SPN’li kullanıcılar (Kerberoasting keşfi)</strong>: <code>(&amp;(samAccountType=805306368)(servicePrincipalName=*))</code></li>
+          <li><strong>Empire – Get-DomainSearcher</strong>: genel kullanıcı nesneleri için <code>samAccountType=805306368</code></li>
+        </ul>
+        <div class="note">
+          <ul>
+            <li><code>805306368</code> → AD'de <em>normal kullanıcı</em> hesap tipidir.</li>
+            <li><code>servicePrincipalName=*</code> → SPN atanmış hesapları listeler; Kerberoasting öncesi kritik adımdır.</li>
+            <li><code>samAccountName=*</code> → Brute-force / password spraying öncesi hesap isimlerini toplamak için kullanılır.</li>
+            <li><em>BloodHound/SharpHound</em> bu filtreleri arka planda PowerView veya .NET LDAP sorguları ile kullanır.</li>
+          </ul>
+        </div>
+
+        <h2 id="etw">ETW ile Görünürlük (SilkService-Log)</h2>
+        <p>
+          <strong>WinEventLog:SilkService-Log</strong>, ETW tabanlı özel bir provider/controller olup process, network ve logon aktivitelerini standart loglardan daha ayrıntılı kaydedebilir. ETW çok veri üretse de yüksek doğruluk sağlar ve Kerberoasting gibi şüpheli davranışların <em>ince ayrıntılarını</em> görünür kılar.
+        </p>
+
+        <h2 id="tespit">Kerberoasting Tespiti</h2>
+        <p>
+          SPN’e sahip hesaplar için olağandışı <strong>TGS (EventCode 4769)</strong> isteklerini izleyin. Özellikle <code>TicketEncryptionType=0x17</code> (RC4-HMAC) veya <em>DES</em> ile şifrelenmiş biletler, çevrimdışı kırma niyetine işaret edebilir.
+        </p>
+        <h3 id="splunk-ornek">Splunk Örneği (RC4-HMAC Odaklı)</h3>
+        <pre><code>index=* source="WinEventLog:Security" EventCode=4769 TicketEncryptionType=0x17
+| stats count min(_time) as first_seen max(_time) as last_seen dc(ClientAddress) as uniq_clients by AccountName, ServiceName
+| sort - count</code></pre>
+
+        <h3 id="korelasyon-4648">4648 ile Korelasyon</h3>
+        <p>
+          <strong>4648</strong> eventi, bir kullanıcının başka bir hesap/servis kimliğiyle <em>explicit</em> olarak logon denemesi yaptığını gösterir. Kerberoasting’de interaktif logon oluşmasa da 4648 üretilebilir. 4769 talepleriyle 4648’i karşılaştırmak, normal aktiviteleri ayırıp şüpheli davranışı öne çıkarır.
+        </p>
+        <pre><code>index=* source="WinEventLog:Security" (EventCode=4769 OR EventCode=4648)
+| eval evt=if(EventCode=4769, "TGS", "ExplicitLogon")
+| stats values(evt) as events min(_time) as first_seen max(_time) as last_seen by AccountName, ServiceName, ClientAddress
+| where mvcount(events)=2
+| sort - last_seen</code></pre>
+
+        <h2 id="ipuclari">Kısa İpuçları</h2>
+        <ul>
+          <li><strong>RC4</strong> gördüğünüzde eşikleri düşürün; kırma süresi dramatik biçimde kısalır.</li>
+          <li><strong>Non-domain joined</strong> istemcilerden gelen TGS istekleri anomali sayılmalıdır.</li>
+          <li>AES’e geçişi zorlayın; mümkünse <strong>gMSA</strong> ve güçlü parola politikaları kullanın.</li>
+        </ul>
+
+        <div class="divider"></div>
+        <div class="author">
+          <div class="avatar">SK</div>
+          <div>
+            <div style="font-weight:600;">Serkan Kocaağa</div>
+            <div style="color:var(--muted); font-size:14px;">Blue Team odaklı içerikler.</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="tag-list">
+          <span class="tag">#Kerberos</span>
+          <span class="tag">#Detection</span>
+          <span class="tag">#Windows</span>
+          <span class="tag">#BlueTeam</span>
+        </div>
+      </article>
+
+      <aside class="sticky">
+        <div class="card toc">
+          <h4>İçindekiler</h4>
+          <ul>
+            <li><a href="#temel">SPN ve Kerberos Temeli</a></li>
+            <li><a href="#algoritmalar">Algoritmalar ve Risk</a></li>
+            <li><a href="#rubeus">Rubeus ile Saldırı</a></li>
+            <li><a href="#cracking">Offline Kırma</a></li>
+            <li><a href="#ldap-kesif">LDAP SPN Keşfi</a></li>
+            <li><a href="#etw">ETW Görünürlük</a></li>
+            <li><a href="#tespit">Tespit</a></li>
+            <li><a href="#korelasyon-4648">4648 Korelasyonu</a></li>
+            <li><a href="#ipuclari">Kısa İpuçları</a></li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h4 style="margin:0 0 10px; font-size:14px; letter-spacing:0.3px; color:#c8dbff; text-transform:uppercase;">Hızlı Bilgi</h4>
+          <p style="margin:0; color:#cfe0ff; font-size:14px;">
+            4769 olaylarını incele <strong>TicketEncryptionType</strong> = <code>0x17</code> (RC4-HMAC) gördüğünde uyarı eşiğini düşürmeyi düşün.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section style="margin-top:24px;" class="pager">
+     
+      <a href="#makale2.html" style="text-align:right;">
+        <span>Sonraki →</span>
+        <strong>PPIS Tespiti</strong>
+      </a>
+    </section>
+
+    <footer style="margin:28px 0 12px; color:var(--muted); font-size:13px; text-align:center;">
+      © 2025 – Siber Güvenlik Blogu. Tüm hakları saklıdır.
+    </footer>
+  </main>
+</body>
+</html>
